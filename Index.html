@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Faiz 💖</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #ffb6d9, #ffc0cb);
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff1493;
+            font-size: 40px;
+            display: none;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff69b4;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+
+        .floating {
+            position: absolute;
+            font-size: 24px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        iframe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button onclick="showLove()">Click Me 💕</button>
+        <h1 id="loveText">I love you Faiz 💖<br>Take care 🥹<br>Be mine forever 🌸</h1>
+    </div>
+
+    <!-- Bruno Mars - Marry You -->
+    <iframe id="music"
+        width="0"
+        height="0"
+        src="https://www.youtube.com/embed/dElRVQFqj-k?autoplay=1&loop=1&playlist=dElRVQFqj-k"
+        frameborder="0"
+        allow="autoplay">
+    </iframe>
+
+    <script>
+        function showLove() {
+            document.getElementById("loveText").style.display = "block";
+            document.getElementById("music").style.display = "block";
+            setInterval(createFloating, 300);
+        }
+
+        function createFloating() {
+            const elements = ["💖", "💗", "💘", "🌸", "🌷", "🌹"];
+            const item = document.createElement("div");
+            item.classList.add("floating");
+            item.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+
+            item.style.left = Math.random() * 100 + "vw";
+            item.style.fontSize = (20 + Math.random() * 30) + "px";
+
+            document.body.appendChild(item);
+
+            setTimeout(() => {
+                item.remove();
+            }, 6000);
+        }
+    </script>
+
+</body>
+</html>
